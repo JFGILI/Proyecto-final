@@ -9,7 +9,7 @@ class products (models.Model):
         return self.name
     
 class costumer (models.Model):
-    name = models.CharField(max_length=20, unique=True)
+    name = models.CharField(max_length=50, unique=True)
     email = models.EmailField()
     phone_number= models.IntegerField()
     

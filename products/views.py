@@ -5,7 +5,7 @@ from products.models import products, costumer
 
 
 def create_product(request):
-    new_product= products.objects.create(name="bebida", price=400, stock=True)
+    new_product= products.objects.create(name="postre", price=500, stock=True)
     return HttpResponse('Se creo el producto')
 
 def list_products(request):
