@@ -13,3 +13,6 @@ class costumer (models.Model):
     email = models.EmailField()
     phone_number= models.IntegerField()
     
+    def __str__(self):
+        return self.phone_number
+
