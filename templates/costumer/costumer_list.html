@@ -1,0 +1,28 @@
+
+{% extends 'base.html'%}
+
+{% block title %}
+Listado de clientes
+{% endblock %}
+
+
+{% block content %}
+    Listado de clientes
+
+{% for people in costumer  %}
+
+<div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{people.name}}</h5>
+    <p class="card-text">Email: {{people.email}}</p>
+    <p class="card-text">Telefono: {{people.phone_number}}</p>
+
+    
+
+    <a href="#" class="btn btn-primary">Contactar</a>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
