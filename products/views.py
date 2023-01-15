@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from products.forms import LocationForm
 
 from products.models import products, costumer, Location
 
@@ -11,9 +12,6 @@ def create_product(request):
         products.objects.create(name=request.POST['name'], price=request.POST['price'])
         return render (request, 'products/create_product.html', context={})
         
-    
-    
-
 def list_products(request):
     if 'search' in request.GET:
         search =request.GET['search']
@@ -26,8 +24,14 @@ def list_products(request):
     return render(request, 'products/list_products.html', context=context)
 
 def create_costumer(request):
-    new_costumer = costumer.objects.create(name="Francisco Gili", email=  'juanfrancisco54@hotmail.com',phone_number= 2612029373)
-    return HttpResponse('Se creo un nuevo cliente')
+    if request.method == 'GET':
+        return render (request, 'costumer/create_costumer.html', context={})
+    
+    elif request.method == 'POST':
+        costumer.objects.create(name=request.POST['name'], email=request.POST['email'], phone_number=request.POST['phone'])
+        return render (request, 'costumer/create_costumer.html', context={})
+    
+
 
 def costumer_list(request):
     all_costumer = costumer.objects.all()
@@ -35,8 +39,19 @@ def costumer_list(request):
     return render(request, 'costumer/costumer_list.html', context=context)
 
 def create_location(request):
-    new_location = Location.objects.create(name="San Juan", phone_number= 263452489)
-    return HttpResponse('Se creo un nuevo local')
+   # new_location = Location.objects.create(name="San Juan", phone_number= 263452489)
+   #return HttpResponse('Se creo un nuevo local')
+    if request.method == 'GET':
+        context={
+            'form':LocationForm()
+        }
+        return render (request, 'location/create_location.html', context=context)
+    
+    elif request.method == 'POST':
+        Location.objects.create(name=request.POST['name'], phone_number=request.POST['phone_number'])
+        return render (request, 'location/create_location.html', context={})
+        
+
 
 def location_list(request):
     all_location= Location.objects.all()
