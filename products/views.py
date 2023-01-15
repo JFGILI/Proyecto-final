@@ -3,10 +3,16 @@ from django.http import HttpResponse
 
 from products.models import products, costumer, Location
 
-
 def create_product(request):
-    new_product= products.objects.create(name="postre", price=500, stock=True)
-    return HttpResponse('Se creo el producto')
+    if request.method == 'GET':
+        return render (request, 'products/create_product.html', context={})
+    
+    elif request.method == 'POST':
+        products.objects.create(name=request.POST['name'], price=request.POST['price'])
+        return render (request, 'products/create_product.html', context={})
+        
+    
+    
 
 def list_products(request):
     if 'search' in request.GET:

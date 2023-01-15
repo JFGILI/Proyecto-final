@@ -1,13 +1,24 @@
 {% extends 'base.html'%}
 {% block title %}
-Crear Producto
+Creacion de Producto
 {% endblock %}
 
 {% block content %}
+    <h1>Hola desde la Creacion</h1>
+    {% if request.method == "GET" %}
 
-        <input type="submit" value="Crear producto">
-    </form>
+        <form action="" method='POST'>{% csrf_token %}
 
+        
+            <p> Nombre: <input type="text" name="name"> </p>
+            <p> Precio: <input type="number" name="price"></p>
+            
+            <input type="submit" value="Crear producto">
+
+        </form>
+    {% else %}
+        <p> Producto creado. </p>
+    {% endif %}
 
 
 {% endblock %}
