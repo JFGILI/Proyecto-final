@@ -1,13 +1,10 @@
 
 {% extends 'base.html'%}
-
 {% block title %}
 Listado de clientes
 {% endblock %}
-
-
 {% block content %}
-    <h1>Listado de clientes</h1><a href="/products/create_costumer class="btn btn-primary">Cargar cliente</a>
+    <h1>Listado de clientes</h1><a href="/products/create_costumer" class="btn btn-primary">Cargar cliente</a>
 
 {% for people in costumer  %}
 
@@ -20,9 +17,8 @@ Listado de clientes
 
     
 
-    <a href="#" class="btn btn-primary">Contactar</a>
+  
   </div>
 </div>
 {% endfor %}
-
 {% endblock %}

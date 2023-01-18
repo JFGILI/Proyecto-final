@@ -30,8 +30,6 @@ def create_costumer(request):
     elif request.method == 'POST':
         costumer.objects.create(name=request.POST['name'], email=request.POST['email'], phone_number=request.POST['phone'])
         return render (request, 'costumer/create_costumer.html', context={})
-    
-
 
 def costumer_list(request):
     all_costumer = costumer.objects.all()
@@ -39,8 +37,7 @@ def costumer_list(request):
     return render(request, 'costumer/costumer_list.html', context=context)
 
 def create_location(request):
-   # new_location = Location.objects.create(name="San Juan", phone_number= 263452489)
-   #return HttpResponse('Se creo un nuevo local')
+
     if request.method == 'GET':
         context={
             'form':LocationForm()
@@ -51,8 +48,6 @@ def create_location(request):
         Location.objects.create(name=request.POST['name'], phone_number=request.POST['phone_number'])
         return render (request, 'location/create_location.html', context={})
         
-
-
 def location_list(request):
     all_location= Location.objects.all()
     context = {'location':all_location}
