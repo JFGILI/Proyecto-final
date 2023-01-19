@@ -45,10 +45,53 @@ def create_location(request):
         return render (request, 'location/create_location.html', context=context)
     
     elif request.method == 'POST':
-        Location.objects.create(name=request.POST['name'], phone_number=request.POST['phone_number'])
-        return render (request, 'location/create_location.html', context={})
+
+        form = LocationForm(request.POST)
+        if form.is_valid():
+            Location.objects.create(
+                name=form.cleaned_data['name'],
+                phone_number=form.cleaned_data['phone_number'],
+            )
+            context = {
+                'message': 'Local creado exitosamente'}
+            return render(request, 'location/create_location.html', context=context)
+        else:
+            context = {
+                'form_errors': form.errors,
+                'form': LocationForm()
+            }
+            return render(request, 'location/create_location.html', context=context)
         
 def location_list(request):
     all_location= Location.objects.all()
-    context = {'location':all_location}
+    context = {'location': all_location}
     return render (request, 'location/location_list.html', context=context)
+
+def location_update(request,id):
+    location = Location.objects.get(id=id)
+    
+    if request.method =='GET':
+        context={
+            'form': LocationForm(
+                initial={
+                    'name': location.name,
+                    'phone_number': location.phone_number,
+            })}
+        return render( request, 'location/location_update.html', context=context)
+    
+    elif request.method=='POST':
+        form = LocationForm(request.POST)
+        if form.is_valid():
+            location.name = form.cleaned_data['name']
+            location.phone_number= form.cleaned_data['phone_number']
+            location.save()
+            
+            context ={
+                'message': 'Local actualizado correctamente'
+            }
+        else: 
+            context = {
+                'form_errors': form.errors,
+                'form': LocationForm()
+            }
+        return render (request, 'location/location_update.html', context=context)
