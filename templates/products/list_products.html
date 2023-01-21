@@ -16,19 +16,20 @@ Menu
     {% for product in products   %}
 
 
-<div class="card" style="width: 18rem;">
-  <img src="/media/products/{{product.name}}.png" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{product.name}}</h5>
-    <p class="card-text">Su precio es: ${{product.price}}</p>
-    {% if product.stock == True %}
-    <p> Actualmente hay stock </p>
-    {% else %}
-    <p> Actualmente no tenemos stock </p>
-    {% endif %}
+    <div class="card" style="width: 18rem;">
+      <img src="/media/products/{{product.name}}.png" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{product.name}}</h5>
+        <p class="card-text">Su precio es: ${{product.price}}</p>
+        {% if product.stock == True %}
+        <p> Actualmente hay stock </p>
+        {% else %}
+        <p> Actualmente no tenemos stock </p>
+        {% endif %}
+      </div>
+    </div>
+  </div> 
 
-  </div>
-</div>
 {% endfor %}
 
 {% endblock %}

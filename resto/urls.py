@@ -5,11 +5,12 @@ from django.urls import path, include
 from django.conf import  settings
 from django.conf.urls.static import static
 
-from resto.views import index
+from resto.views import index, aboutme
 
 urlpatterns = [
     path('', index, name='index'),
     path('admin/', admin.site.urls),
+    path('aboutme/' , aboutme, name='aboutme' ),
 
     path ('products/', include ('products.urls')),
     path ('users/', include ('users.urls')),
