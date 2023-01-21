@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    Borrar local
+{% endblock %}
+
+{% block content %}
+
+<h2>Local a borrar:   {{object.name}} </h2>
+<p> Esta seguro que desea borrar este local? </p>
+
+<form action="" method='POST'>{% csrf_token %}
+    <input type="submit" value=" SI, borrar">
+</form>
+
+{% endblock %}

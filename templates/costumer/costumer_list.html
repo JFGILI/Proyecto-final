@@ -14,7 +14,10 @@ Listado de clientes
     <h5 class="card-title">{{people.name}}</h5>
     <p class="card-text">Email: {{people.email}}</p>
     <p class="card-text">Telefono: {{people.phone_number}}</p>
-
+    {% if request.user.is_authenticated %}
+    <a href="/products/costumer_update/{{people.id}}" class="btn btn-primary">Actualizar</a>
+    <a href="/products/costumer_delete/{{people.id}}" class="btn btn-danger">Borrar</a>
+    {% endif %}
     
 
   

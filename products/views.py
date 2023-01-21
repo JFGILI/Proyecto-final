@@ -1,7 +1,7 @@
+from django.views.generic import DeleteView, UpdateView
 from django.shortcuts import render
 from django.http import HttpResponse
 from products.forms import LocationForm
-from django.contrib.auth.decorators import login_required
 
 from products.models import products, costumer, Location
 
@@ -37,6 +37,17 @@ def costumer_list(request):
     context = {'costumer': all_costumer}
     return render(request, 'costumer/costumer_list.html', context=context)
 
+class costumerUpdateView(UpdateView):
+    model= costumer
+    fields= ['name', 'email', 'phone_number']
+    template_name= 'costumer/costumer_form.html'
+    success_url= '/products/costumer_list/'
+    
+class costumerDeleteView(DeleteView):
+    model= costumer
+    template_name='costumer/costumer_delete.html'
+    success_url = '/products/costumer_list/'
+
 def create_location(request):
 
     if request.method == 'GET':
@@ -62,7 +73,7 @@ def create_location(request):
                 'form': LocationForm()
             }
             return render(request, 'location/create_location.html', context=context)
-        
+ 
 def location_list(request):
     all_location= Location.objects.all()
     context = {'location': all_location}
@@ -96,3 +107,8 @@ def location_update(request,id):
                 'form': LocationForm()
             }
         return render (request, 'location/location_update.html', context=context)
+
+class locationDeleteView(DeleteView):
+    model= Location
+    template_name='location/location_delete.html'
+    success_url = '/products/location_list/'

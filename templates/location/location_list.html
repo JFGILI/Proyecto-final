@@ -10,6 +10,7 @@ Locales
 <a href="/products/create_location" class="btn btn-danger">Crear nuevo local</a>
     {% endif %}
 {% endif %}
+
 {% for locales in location %}
 
 <div class="card mb-3" style="max-width: 500px;">
@@ -23,7 +24,8 @@ Locales
           <p class="card-text">Telefono: {{locales.phone_number}} </p>
           {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
-          <a href="/products/location_update/{{locales.id}}" class="btn btn-danger">Actualizar local</a>
+          <a href="/products/location_update/{{locales.id}}" class="btn btn-primary">Actualizar local</a>
+          <a href="/products/location_delete/{{locales.id}}" class="btn btn-danger">Borrar local</a>
               {% endif %}
           {% endif %}
         </div>

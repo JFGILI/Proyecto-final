@@ -1,25 +1,16 @@
 {% extends 'base.html'%}
 {% block title %}
-Actualizacion de locales
+Actualizacion de clientes
 {% endblock %}
 
 {% block content %}
-    <h1>Actualizacion de locales</h1>
+    <h1>Actualizacion de clientes</h1>
     {% if form %}
         <form action="" method='POST'>{% csrf_token %}
 
             {{form}}
             
             <input type="submit" value="Actualizar">
-        </form>
+        </form>s
     {% endif %}
-
-    {% if form_errors %}
-    <h2> Errores: {{form_errors}} </h2>
-    {% endif %}
-
-    {% if message %}
-    <h2> {{message}} </h2>
-    {% endif %}
-
 {% endblock %}
