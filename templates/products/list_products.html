@@ -2,13 +2,13 @@
 {% extends 'base.html'%}
 
 {% block title %}
-Listado productos
+Menu
 {% endblock %}
 
 
 {% block content %}
-    <h1>Listado de productos</h1>
-    <a href="/products/create_product" class="btn btn-primary">Crear nuevo producto</a>
+    <h1>Menu de productos</h1>
+    <a href="/products/create_product" class="btn btn-danger">Crear nuevo producto</a>
 {% for product in products   %}
 
 <div class="card" style="width: 18rem;">
@@ -22,7 +22,7 @@ Listado productos
     <p> Actualmente no tenemos stock </p>
     {% endif %}
 
-    <a href="#" class="btn btn-primary">Comprar</a>
+    <a href="#" class="btn btn-danger">Comprar</a>
   </div>
 </div>
 {% endfor %}

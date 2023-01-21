@@ -8,7 +8,7 @@
   <body>
     <header>
 
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <a class="navbar-brand" href="/">Inicio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -17,7 +17,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="/products/list_products/">Listado de productos </a>
+              <a class="nav-link" href="/products/list_products/">Nuestro Menu</a>
             </li> 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -25,13 +25,23 @@
               </a>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="/products/location_list">Lista de locales</a>
-              
             </li> 
-            <li class="nav-item">
+            <li class="nav-item" style="margin-right :250px">
               <a class="nav-link" href="/products/costumer_list">Listado de clientes</a>
             </li>
 
-               
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="/users/logout">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item" >
+              <a class="nav-link" href="/users/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/singup">Sing up</a>
+            </li>
+            {% endif %}
                 
 
             </li>
@@ -113,7 +123,7 @@
         <!-- Copyright -->
         <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
           © 2023 Copyright:
-          <a class="text-dark" href="https://mdbootstrap.com/">JF GILI Coderhouse</a>
+          <a class="text-dark" href="https://mdbootstrap.com/">JF GILI TOMLIENOVICH Coderhouse</a>
         </div>
         <!-- Copyright -->
       </footer>

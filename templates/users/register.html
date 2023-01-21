@@ -1,10 +1,10 @@
 {% extends 'base.html'%}
 {% block title %}
-Login
+    Registro
 {% endblock %}
 
 {% block content %}
-    <h1>Ingrese sus datos</h1>
+    <h1>Complete el formulario para registrarse</h1>
     
     {% if form %}
 
@@ -12,15 +12,14 @@ Login
 
             {{form}}
             
-            <input type="submit" value="Ingresar">
+            <input type="submit" value="Registrarse">
         </form>
+    
     {% endif %}
 
     {% if errors %}
-    {{errors}}
-     {% endif %}
-    
-    {% if message %}
-    <p> {{message}} </p>
+        {{errors}} 
     {% endif %}
-    {% endblock %}
+{% endblock %}
+ 
+    
