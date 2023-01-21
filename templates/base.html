@@ -26,9 +26,13 @@
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="/products/location_list">Lista de locales</a>
             </li> 
-            <li class="nav-item" style="margin-right :250px">
+            <li class="nav-item" style="margin-right:450px">
+
+            {% if request.user.is_authenticated %}
+            
               <a class="nav-link" href="/products/costumer_list">Listado de clientes</a>
             </li>
+            {% endif %}
 
             {% if request.user.is_authenticated %}
             <li class="nav-item">

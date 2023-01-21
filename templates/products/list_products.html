@@ -8,8 +8,14 @@ Menu
 
 {% block content %}
     <h1>Menu de productos</h1>
-    <a href="/products/create_product" class="btn btn-danger">Crear nuevo producto</a>
-{% for product in products   %}
+{% if request.user.is_authenticated %}
+    {% if request.user.is_superuser %}
+      <a href="/products/create_product" class="btn btn-danger">Crear nuevo producto</a>
+    {% endif %}
+{% endif %}
+
+    {% for product in products   %}
+
 
 <div class="card" style="width: 18rem;">
   <img src="/media/products/{{product.name}}.png" class="card-img-top" alt="...">

@@ -5,11 +5,14 @@ Locales
 {% endblock %}
 {% block content %}
 <h1> Nuestros Locales</h1>
+{% if request.user.is_authenticated %}
+    {% if request.user.is_superuser %}
 <a href="/products/create_location" class="btn btn-danger">Crear nuevo local</a>
-
+    {% endif %}
+{% endif %}
 {% for locales in location %}
 
-<div class="card mb-3" style="max-width: 540px;">
+<div class="card mb-3" style="max-width: 500px;">
     <div class="row no-gutters">
       <div class="col-md-4">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkWCOfMiy-cOxMMqPYc-zuy_MwSBslYhBCxA&usqp=CAU" alt="...">
@@ -18,7 +21,11 @@ Locales
         <div class="card-body">
           <h5 class="card-title">{{locales.name}}</h5>
           <p class="card-text">Telefono: {{locales.phone_number}} </p>
+          {% if request.user.is_authenticated %}
+              {% if request.user.is_superuser %}
           <a href="/products/location_update/{{locales.id}}" class="btn btn-danger">Actualizar local</a>
+              {% endif %}
+          {% endif %}
         </div>
       </div>
     </div>
