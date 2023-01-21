@@ -1,14 +1,55 @@
-# Proyecto-final
-
-Mi nombre es Juan Francisco GILI, soy ingeniero industrial y tengo 35 anos. Llevo trabajando 11 anos en la industria y actualmente estoy a cargo de una fabrica de red antigranizo en la provincia de Mendoza.
-Llevaba 11 anos sin actualizar mis conocimiento, hasta que un dia me dieron ganas de empezar un nuevo desafio. Esta es mi primera experiencia en el mundi IT.
+# Proyecto-final Curso Python comision CODERHOUSE
 
 
-Bueno con respecto al proyecto, mi idea es hacer un resto o restaurante. 
-Decidi realizar modelos de productos, clientes y de locales.
+## *Presentación de proyecto*
 
-Comence realizando el primer modelo "products" y con el realice todas las funcionalidades. Luego agrege el seguendo modelo "costumer"
+ Base mi proyecto en mi local favorito de hamburguesas "FIVE GUYS". El concepto de la tienda es vender hamburguesas premiun del tipo caseras y el cliente le puede agregar todos los toppings que quiera sin costo adicional. La tienda solo ofrece un menu alternativo, hot dogs y por supuesto tambien papas fritas, postres y bebidas. El menu es fijo y es siempre el mismo en todos los diferentes locales y franquicias de la marca.
 
-Pude realizar la herencia de templates, la nav bar y el footer. Tambien pude realizar correctamente el search en la lista del producto desde el archivo Basa.html y la configuracion para el admin.
+Realice los modelos productos (products), locales (location) y clientes (costumer). Luego tambien la aplicaciones usuarios (users).
 
-En este momento todavia me falta realizar el 3 modelo "locaciones" y poder hacer los formularios. 
+La idea es que segun el nivel del usuario se vaya modificando los diferentes  accesos y funcionalidades.
+
+Para un usuario sin logerse o un usuario basico del tipo cliente, solo estaran disponibles las visualizaciones generales de la marca, la del menu, la de los distintos puntos de venta y la posibilidade de registrarse.
+
+Para un usuario intermedio del tipo 'staff' agregamos la posibilidad de visualizar el listado de clientes con sus datos personales como asi tambien la posibilidad de actualizar y borrar los mismos.
+
+Para un usuario del mas alto nivel del tipo 'superuser' agregamos la posibilidad de sumar opcines al menu de comidas como asi tambien la posibilidad de agregar/borrar locales o franquicias al listado de locales.
+
+A mi entender, para terminar este proyecto, faltaria la parte del carrito de compras... 
+
+
+### Cómo ejecutar el proyecto
+- Instalar Python
+- Clonar el proyecto con ``` git clone github.com/JFGILI/Proyecto-final.git```
+- Crear entorno virtual con `Pipenv` or `virtualenv` and activate it.
+- Instalar los requerimientos
+```sh
+    pip install -r requirements.txt
+```
+- Arrastrar carpeta a Visual estudio code 
+- Ejecutar las migraciones
+```sh
+    $python manage.py makemigrations
+    $python manage.py migrate
+```
+- Ejecutar el proyecto
+```sh
+    python manage.py runserver
+
+# Desarrollador del proyecto:
+
+## BackEnd
+### | [Juan Francisco GILI TOMLIENOVICH ](https://www.linkedin.com/in/juan-francisco-gili-tomlienovich-30494b23a) | 
+ [<img src=](https://github.com/JFGILI) 
+
+
+
+
+Mi nombre es Juan Francisco GILI, soy Ingeniero Industrial y tengo 35 anos. Llevo trabajando 11 anos en la industria y actualmente estoy a cargo de una fabrica de red antigranizo en la provincia de Mendoza.
+
+Llevaba 11 anos sin estudiar ni ampliar mis conocimiento. Hasta que un  dia, hablando con un amigo me dijo una frase que me toco, la frase fue la siguiente: "10 anos haciendo lo mismo no es experiencia, es solamente 10 anos haciendo lo mismo". 
+
+Esta frase realmente me hizo dar cuenta que era el momento de probar algo nuevo, que era el momento para un nuevo desafio. 
+
+Actuamente estoy terminando el curso de python de Coderhouse (comision34650), mi primer experiencia en el mundo IT.
+
