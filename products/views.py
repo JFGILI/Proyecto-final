@@ -6,9 +6,9 @@ from products.forms import LocationForm
 from products.models import products, costumer, Location, Message
 
 def create_message(request):
-    new_message=Message.objects.create(message= 'Veni que te como!! Dibu Martinez Campeon Mundial ')
-    context={'phrase': new_message}
-    return render (request, 'index.html', context = context)
+    Message.objects.create(message= 'Veni que te como!! Dibu Martinez Campeon Mundial ')
+    return HttpResponse ('Se creo una nueva frase')
+
 
 def create_product(request):
     if request.method == 'GET':
