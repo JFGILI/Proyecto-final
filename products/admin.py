@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from products.models import products, costumer, Location
+from products.models import products, costumer, Location, Message
 
 @admin.register(products)
 class productAdmin(admin.ModelAdmin):
@@ -19,3 +19,7 @@ class locationAdmin(admin.ModelAdmin):
     list_display = ('name', 'phone_number')
     list_filter = ('name', 'phone_number')
     list_fields = ('name')
+
+@admin.register(Message)
+class messagenAdmin(admin.ModelAdmin):
+    list_fields = ('message')

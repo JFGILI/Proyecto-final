@@ -12,7 +12,6 @@ class products (models.Model):
         verbose_name = 'Producto'
         verbose_name_plural = 'Productos'
         
-    
 class costumer (models.Model):
     name = models.CharField(max_length=50, unique=True)
     email = models.EmailField()
@@ -33,5 +32,9 @@ class Location (models.Model):
     class Meta:
         verbose_name = 'Local'
         verbose_name_plural = 'Locales'
+
+class Message (models.Model):
+    message=models.CharField(max_length=200)
     
-   
+    def __str__(self):
+        return self.message
