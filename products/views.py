@@ -9,6 +9,12 @@ def create_message(request):
     Message.objects.create(message= 'Veni que te como!! Dibu Martinez Campeon Mundial ')
     return HttpResponse ('Se creo una nueva frase')
 
+def index(request):
+    msg= Message.objects.all()
+    context = {
+        "message":msg
+    }
+    return render (request, 'index.html', context=context)
 
 def create_product(request):
     if request.method == 'GET':

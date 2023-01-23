@@ -6,18 +6,13 @@ Inicio
 
 {% block content %}
 
-<h1> Frase del mes: </h1>
-{% for item in phrase %}
-
-<h1>{{item.message}}</h1>
-
-{% endfor %}
+<h1> {{msg.message}}</h1>
 
 
 
-  {% if message%}
+  {% if message %}
     <h2>{{message}}</h2>
-  {% else%}
+  {% else %}
 
   {% endif %}
 
